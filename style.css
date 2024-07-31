@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 62.5%;
+  /* Dark Blue */
+  --dark-blue-100: #609ed4;
+  --dark-blue-200: #356ea9;
+  --dark-blue-300: #0a3871;
+  --dark-blue-400: #072b61;
+  --dark-blue-500: #052051;
+  /* Light Blue */
+  --light-blue-100: #f3f5fc;
+  --light-blue-200: #eff1fa;
+  --light-blue-300: #e9ecf8;
+  --light-blue-400: #aab2d5;
+  --light-blue-500: #757fb2;
+  /* Gray */
+  --gray-100: #ced4da;
+  --gray-200: #adb5bd;
+  --gray-300: #868e96;
+  --gray-400: #495057;
+  --gray-500: #343a40;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  padding: 2.4rem;
+  font-size: 1.6rem;
+  background-color: var(--light-blue-100);
+  height: 100vh;
+}
+
+#page {
+  display: grid;
+  height: 100%;
+  grid-template-areas:
+    "header"
+    "form"
+    "section";
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 2fr 1fr;
+  gap: 4rem;
+}
+
+button,
+textarea {
+  font-family: "Inter", sans-serif;
+}
+
+button:hover {
+  filter: brightness(0.8);
+}
+
+button:focus {
+  outline: 1px solid var(--light-blue-100);
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 0;
+  height: 5.2rem;
+  border-radius: 1.6rem;
+  padding: 0 2.4rem;
+  font-weight: 500;
+}
+
+.hide {
+  display: none;
+}
+
+header {
+  grid-area: header;
+}
+
+header img {
+  width: 100%;
+  max-width: 28px;
+}
+
+form {
+  grid-area: form;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 0.5fr 1fr;
+}
+
+form #textToDecryptOrEncrypt {
+  border: 0;
+  font-size: 2.4rem;
+  width: 100%;
+  resize: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--dark-blue-300);
+}
+
+form #textToDecryptOrEncrypt::placeholder {
+  color: var(--dark-blue-300);
+}
+
+form .attentionContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+form .attentionContainer small {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  color: var(--gray-500);
+}
+
+form .buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.buttonContainer #encryptButton {
+  background-color: var(--dark-blue-400);
+  color: var(--light-blue-200);
+}
+
+.buttonContainer #decryptButton {
+  background-color: var(--gray-100);
+  border: 1px solid var(--dark-blue-400);
+  color: var(--dark-blue-500);
+}
+
+.decryptSection {
+  grid-area: section;
+  background-color: white;
+  padding: 1.6rem;
+  border-radius: 2rem;
+  box-shadow: 2px 4px 10px 0px var(--gray-300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.decryptSection #woman {
+  display: none;
+}
+
+.decryptSection .messageContainer {
+  text-align: center;
+}
+
+.decryptSection .messageContainer p {
+  margin-top: 1.6rem;
+}
+
+.decryptSection #decryptText {
+  font-size: 2.4rem;
+  color: var(--gray-500);
+}
+
+.decryptSection #copyButton {
+  width: 100%;
+  margin-top: 2.4rem;
+  background-color: var(--gray-100);
+  border: 1px solid var(--dark-blue-400);
+  color: var(--dark-blue-500);
+}
+
+@media screen and (min-width: 700px) {
+  form .buttonContainer {
+    flex-direction: row;
+  }
+
+  form .buttonContainer button {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #page {
+    display: grid;
+    height: 100%;
+    grid-template-areas:
+      "header section"
+      "form section";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: max-content 2fr;
+    gap: 4rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .decryptSection #woman {
+    display: block;
+  }
+
+  .decryptSection .decryptContainer {
+    height: 100%;
+  }
+}
